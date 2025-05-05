@@ -44,7 +44,10 @@ from .go1.go1_config import Go1RoughCfg, Go1RoughCfgPPO, Go1RoughCfgNoPenalty, G
 from .go1.go1_pos_config import Go1PosRoughCfg, Go1PosRoughCfgPPO, Go1PosRoughCfgNoPenalty, Go1PosRoughCfgPPOLagrangian
 from .go1.go1_rec_config import Go1RecRoughCfg, Go1RecRoughCfgPPO
 
-import os
+# ✅ B2 imports
+from .b2.b2_config import B2RoughCfg, B2RoughCfgPPO, B2RoughCfgNoPenalty, B2RoughCfgPPOLagrangian
+from .b2.b2_pos_config import B2PosRoughCfg, B2PosRoughCfgPPO, B2PosRoughCfgNoPenalty, B2PosRoughCfgPPOLagrangian
+from .b2.b2_rec_config import B2RecRoughCfg, B2RecRoughCfgPPO
 
 from legged_gym.utils.task_registry import task_registry
 
@@ -62,3 +65,7 @@ task_registry.register( "go1_rec_rough", LeggedRobotRec, Go1RecRoughCfg(), Go1Re
 ## PPO Lagrangian
 task_registry.register( "go1_pos_rough_ppo_lagrangian", LeggedRobotPos, Go1PosRoughCfgNoPenalty(), Go1PosRoughCfgPPOLagrangian())
 
+# ✅ B2 PPO
+task_registry.register("b2_rough", LeggedRobot, B2RoughCfg(), B2RoughCfgPPO())
+task_registry.register("b2_pos_rough", LeggedRobotPos, B2PosRoughCfg(), B2PosRoughCfgPPO())
+task_registry.register("b2_rec_rough", LeggedRobotRec, B2RecRoughCfg(), B2RecRoughCfgPPO())
